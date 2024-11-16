@@ -1,1 +1,2 @@
-first commit
+# Weather Checker Project
+
