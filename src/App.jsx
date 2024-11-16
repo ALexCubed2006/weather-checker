@@ -1,3 +1,9 @@
+import Modal from './components/modal/Modal'
+
 export default function App() {
-	return <div>div</div>
+	return (
+		<div>
+			<Modal />
+		</div>
+	)
 }

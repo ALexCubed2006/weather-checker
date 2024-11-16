@@ -1,10 +1,15 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { CURRENT_API_URL, WEATHER_API_KEY } from '../../config'
+import {
+	CURRENT_API_URL,
+	DEFAULT_LANG,
+	DEFAULT_LOCATION,
+	WEATHER_API_KEY,
+} from '../../config'
 
 export default function useWeatherForecast(
-	location = 'Minsk',
-	lang = 'ru',
+	location = DEFAULT_LOCATION,
+	lang = DEFAULT_LANG,
 	type = 'current',
 	day = 0,
 ) {
