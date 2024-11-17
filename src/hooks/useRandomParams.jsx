@@ -1,8 +1,4 @@
-import {
-	API_DEFAULT_FORECAST_TYPES,
-	DEFAULT_DATE,
-	WEATHER_API_URL,
-} from '../../config'
+import { API_DEFAULT_FORECAST_TYPES, WEATHER_API_URL } from '../../config'
 
 // generate random params
 // for use in forecast hook
@@ -207,7 +203,6 @@ export default function useRandomParams() {
 		]
 	const randomApiUrl = `${WEATHER_API_URL}${randomType}.json`
 
-	// FIXME: fix history selecting wrong day
 	if (randomType === API_DEFAULT_FORECAST_TYPES.history) {
 		const date = new Date()
 		date.setDate(date.getDate() - Math.floor(Math.random() * 7))
@@ -220,14 +215,11 @@ export default function useRandomParams() {
 			randomApiUrl,
 		}
 	} else if (randomType === API_DEFAULT_FORECAST_TYPES.forecast) {
-		const date = new Date()
-		date.setDate(date.getDate() + Math.floor(Math.random() * 3))
-
 		return {
 			randomLocation,
 			randomLang,
 			randomType,
-			randomDay: date.toISOString().split('T')[0],
+			randomDay: Math.floor(Math.random() * 3) + 1,
 			randomApiUrl,
 		}
 	} else {
@@ -235,7 +227,7 @@ export default function useRandomParams() {
 			randomLocation,
 			randomLang,
 			randomType,
-			randomDay: DEFAULT_DATE,
+			randomDay: new Date().toISOString().split('T')[0],
 			randomApiUrl,
 		}
 	}

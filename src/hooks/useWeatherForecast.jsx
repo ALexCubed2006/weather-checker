@@ -30,7 +30,7 @@ export default function useWeatherForecast(
 				setISLoading(false)
 			}
 
-			const forecast = formatForecast(weather)
+			const forecast = formatForecast(weather, type)
 			setForecast(forecast)
 			setISLoading(false)
 		}
@@ -38,9 +38,13 @@ export default function useWeatherForecast(
 	}, [location, lang, type])
 
 	// helper functions
-	const formatForecast = (weather) => {
+	const formatForecast = (weather, type = API_FORECAST_TYPES.current) => {
+		// TODO: create selecting random params
+		if (type === API_FORECAST_TYPES.random) {
+			return weather.data
+		}
 		return {
-			condition: weather.data.current.condition.text,
+			condition: weather.data?.current?.condition?.text,
 			location: {
 				name: weather.data.location.name,
 				region: weather.data.location.region,
@@ -99,24 +103,52 @@ export default function useWeatherForecast(
 					},
 					params: {
 						q: location,
-						days: day,
+						dt: day,
 						lang: lang,
 					},
 				})
 			case API_FORECAST_TYPES.random: {
-				const { randomApiUrl, randomLang, randomDay, randomLocation } =
-					useRandomParams()
+				const {
+					randomApiUrl,
+					randomLang,
+					randomDay,
+					randomLocation,
+					randomType,
+				} = useRandomParams()
 
-				return await axios.get(randomApiUrl, {
-					headers: {
-						key: WEATHER_API_KEY,
-					},
-					params: {
-						q: randomLocation,
-						lang: randomLang,
-						days: randomDay,
-					},
-				})
+				if (randomType === API_FORECAST_TYPES.forecast) {
+					return await axios.get(randomApiUrl, {
+						headers: {
+							key: WEATHER_API_KEY,
+						},
+						params: {
+							q: randomLocation,
+							days: randomDay,
+							lang: randomLang,
+						},
+					})
+				} else if (randomType === API_FORECAST_TYPES.history) {
+					return await axios.get(randomApiUrl, {
+						headers: {
+							key: WEATHER_API_KEY,
+						},
+						params: {
+							q: randomLocation,
+							dt: randomDay,
+							lang: randomLang,
+						},
+					})
+				} else {
+					return await axios.get(randomApiUrl, {
+						headers: {
+							key: WEATHER_API_KEY,
+						},
+						params: {
+							q: randomLocation,
+							lang: randomLang,
+						},
+					})
+				}
 			}
 			default:
 				return await axios.get(CURRENT_API_URL, {
