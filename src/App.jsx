@@ -1,9 +1,9 @@
-import Modal from './components/modal/Modal'
+import useWeatherForecast from './hooks/useWeatherForecast'
 
 export default function App() {
-	return (
-		<div>
-			<Modal />
-		</div>
-	)
+	console.log('[App] render')
+	const { forecast, isLoading } = useWeatherForecast('random')
+
+	console.log(new Date().toISOString())
+	return <div>{isLoading ? 'loading...' : JSON.stringify(forecast)}</div>
 }
