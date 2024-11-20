@@ -1,8 +1,9 @@
-import { API_DEFAULT_FORECAST_TYPES, WEATHER_API_URL } from '../../config'
+import { API_DEFAULT_FORECAST_TYPES, WEATHER_API_URL } from '../../../config'
 
 // generate random params
 // for use in forecast hook
 export default function useRandomParams() {
+	console.log('useRandomParams')
 	const randomLocations = [
 		'London',
 		'Berlin',
