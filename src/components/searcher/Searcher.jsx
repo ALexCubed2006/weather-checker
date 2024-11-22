@@ -18,7 +18,6 @@ export default function Searcher() {
 				abortController.signal,
 			)
 			setWeather(f)
-			console.log(f)
 		}
 		forecast()
 
@@ -28,10 +27,15 @@ export default function Searcher() {
 	return (
 		<div>
 			<input type='text' ref={inputRef} />
-			<button onClick={() => setQuery(inputRef.current.value)}>
+			<button
+				onClick={() => {
+					setQuery(inputRef.current.value)
+					inputRef.current.value = ''
+				}}
+			>
 				Search
 			</button>
-			{JSON.stringify(weather)}
+			{JSON.stringify(weather.data)}
 		</div>
 	)
 }
