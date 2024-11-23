@@ -19,7 +19,7 @@ export default function useWeatherForecast(
 	lang = DEFAULT_LANG,
 	day = DEFAULT_DATE,
 ) {
-	console.log('useWeatherForecast')
+	console.log('[useWeatherForecast]')
 	const [isLoading, setISLoading] = useState(false)
 	const [forecast, setForecast] = useState({})
 	const [error, setError] = useState(null)
@@ -66,6 +66,8 @@ export default function useWeatherForecast(
 }
 
 // helper functions
+
+// formats forecast data
 const formatForecast = (weather, type = API_FORECAST_TYPES.current) => {
 	if (type === API_FORECAST_TYPES.current) {
 		return {
@@ -126,6 +128,8 @@ const formatForecast = (weather, type = API_FORECAST_TYPES.current) => {
 	return weather.data
 }
 
+// fetches forecast
+// 
 export const fetchForecast = async (
 	type = API_FORECAST_TYPES.current,
 	day = DEFAULT_DATE,

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
-import { API_FORECAST_TYPES } from '../../../config'
+import { API_FORECAST_TYPES, LANGUAGES } from '../../../config'
 import { fetchForecast } from '../../hooks/weather/useWeatherForecast'
 
-export default function Searcher() {
+export default function Searcher({ setLocation = () => {} }) {
 	const abortController = new AbortController()
 	const inputRef = useRef(null)
 	const [query, setQuery] = useState('Minsk')
@@ -14,10 +14,11 @@ export default function Searcher() {
 				API_FORECAST_TYPES.current,
 				null,
 				query,
-				'ru',
+				LANGUAGES.ru,
 				abortController.signal,
 			)
 			setWeather(f)
+			setLocation(f.data.location.name)
 		}
 		forecast()
 
