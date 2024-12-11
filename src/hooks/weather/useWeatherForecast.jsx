@@ -60,15 +60,13 @@ export default function useWeatherForecast(
 		// conditions
 		isLoading,
 		error,
-
-		formatForecast,
 	}
 }
 
 // helper functions
 
 // formats forecast data
-const formatForecast = (weather, type = API_FORECAST_TYPES.current) => {
+export const formatForecast = (weather, type = API_FORECAST_TYPES.current) => {
 	if (type === API_FORECAST_TYPES.current) {
 		return {
 			condition: weather.data?.current?.condition?.text,
@@ -129,7 +127,6 @@ const formatForecast = (weather, type = API_FORECAST_TYPES.current) => {
 }
 
 // fetches forecast
-// 
 export const fetchForecast = async (
 	type = API_FORECAST_TYPES.current,
 	day = DEFAULT_DATE,

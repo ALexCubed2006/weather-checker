@@ -18,6 +18,7 @@ export default function Nav({ type }) {
 			LANGUAGES.ru,
 		)
 		console.log(f)
+        // FIXME: добавить переход на страницу погоды города
 		// setWeather(f)
 	}
 
