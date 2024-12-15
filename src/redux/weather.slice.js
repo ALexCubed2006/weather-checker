@@ -20,8 +20,8 @@ export const weatherSlice = createSlice({
 		addForecast: (state, action) => {
 			state.forecast[action.payload.day] = action.payload.forecast
 		},
-		setHistory: (state, action) => {
-			state.history = action.payload
+		addHistory: (state, action) => {
+			state.history[action.payload.day] = action.payload.forecast
 		},
 		setAstro: (state, action) => {
 			state.astro = action.payload
@@ -32,7 +32,7 @@ export const weatherSlice = createSlice({
 	},
 })
 
-export const { setCurrent, addForecast, setHistory, setAstro, setTheme } =
+export const { setCurrent, addForecast, addHistory, setAstro, setTheme } =
 	weatherSlice.actions
 
 export default weatherSlice.reducer

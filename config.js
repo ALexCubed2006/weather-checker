@@ -45,7 +45,17 @@ export const DEFAULT_LANG = localStorage.getItem('lang')
 	: LANGUAGES.ru
 
 export const DEFAULT_DATE = new Date().toISOString().split('T')[0]
-export const DEFAULT_DAYS_COUNT = 3;
+export const DEFAULT_DAYS_COUNT = 3
+export const HISTORY_DAYS = [
+	// FIXME: сделать даты на неделю назад
+	DEFAULT_DATE,
+	new Date().toISOString().split('T')[0],
+	new Date().toISOString().split('T')[0],
+	new Date().toISOString().split('T')[0],
+	new Date().toISOString().split('T')[0],
+	new Date().toISOString().split('T')[0],
+	new Date().toISOString().split('T')[0],
+]
 
 // api types
 export const API_DEFAULT_FORECAST_TYPES = {

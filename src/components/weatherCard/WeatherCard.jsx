@@ -4,7 +4,7 @@ import { LocationContext } from '../../../context'
 import { API_FORECAST_TYPES } from '../../config'
 import useWeatherForecast from '../hooks/weather/useWeatherForecast'
 
-export default function WeatherCard({ type, day = 1}) {
+export default function WeatherCard() {
 	return (
 		<div>
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto

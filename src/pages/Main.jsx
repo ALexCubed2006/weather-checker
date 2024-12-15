@@ -16,6 +16,7 @@ const Main = memo(() => {
 					home: ROUTES.main,
 				}}
 			/>
+			
 		</div>
 	)
 })
