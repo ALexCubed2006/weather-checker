@@ -10,10 +10,12 @@ export default function Nav({ type }) {
 				LOGO
 			</div>
 
+			<AppLink pass={type.home}>Home</AppLink>
+
 			{/* TODO:TEAM стилизовать и добавить иконки в теги */}
 			<AppLink pass={type.default}>
 				{/* сюда иконку вставить */}
-				HOME
+				Default
 			</AppLink>
 			<AppLink pass={type.forecast}>FORECAST</AppLink>
 			<AppLink pass={type.story}>Archive</AppLink>

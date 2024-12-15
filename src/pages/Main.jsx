@@ -13,6 +13,7 @@ const Main = memo(() => {
 					default: ROUTES.main,
 					forecast: ROUTES.sity + '/' + location,
 					story: ROUTES.story,
+					home: ROUTES.main,
 				}}
 			/>
 		</div>
