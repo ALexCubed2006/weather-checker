@@ -11,6 +11,7 @@ export const ASTRO_API_URL = 'https://api.weatherapi.com/v1/astronomy.json'
 // constants
 export const LANGUAGES = { ru: 'Русский', en: 'English' }
 export const THEMES = { light: 'light', dark: 'dark', default: 'light' }
+export const DEFAULT_SITY = 'Minsk'
 
 // get user location from browser
 if (navigator.geolocation) {
@@ -28,7 +29,7 @@ if (navigator.geolocation) {
 		},
 	)
 } else {
-	console.error('Объект Geolocation не поддерживается вашим браузером')
+	console.warn('Объект Geolocation не поддерживается вашим браузером')
 }
 export const DEFAULT_LOCATION = localStorage.getItem('location')
 	? // query location
@@ -36,12 +37,15 @@ export const DEFAULT_LOCATION = localStorage.getItem('location')
 	  JSON.parse(localStorage.getItem('location')).latitude +
 	  ',' +
 	  JSON.parse(localStorage.getItem('location')).longitude
-	: // default location
-	  'Minsk'
+	: // default sity
+	  DEFAULT_SITY
+
 export const DEFAULT_LANG = localStorage.getItem('lang')
 	? localStorage.getItem('lang')
-	: 'ru'
+	: LANGUAGES.ru
+
 export const DEFAULT_DATE = new Date().toISOString().split('T')[0]
+export const DEFAULT_DAYS_COUNT = 3;
 
 // api types
 export const API_DEFAULT_FORECAST_TYPES = {
@@ -60,4 +64,5 @@ export const API_FORECAST_TYPES = {
 export const ROUTES = {
 	main: '/',
 	story: '/story',
+	sity: '/sity',
 }

@@ -13,6 +13,7 @@ import {
 } from '../../../config'
 import useRandomParams from './useRandomParams'
 
+// TODO: redo
 export default function useWeatherForecast(
 	type = API_FORECAST_TYPES.current,
 	location = DEFAULT_LOCATION,
@@ -20,46 +21,19 @@ export default function useWeatherForecast(
 	day = DEFAULT_DATE,
 ) {
 	console.log('[useWeatherForecast]')
-	const [isLoading, setISLoading] = useState(false)
-	const [forecast, setForecast] = useState({})
-	const [error, setError] = useState(null)
+	const [forecast, setForecast] = useState(null)
 
 	useEffect(() => {
-		const abortController = new AbortController()
-
-		async function asyncFetch() {
-			setISLoading(true)
-			const weather = await fetchForecast(
-				type,
-				day,
-				location,
-				lang,
-				abortController.signal,
-			)
-
-			if (weather.data.error) {
-				setError(weather.data.error)
-				setISLoading(false)
-			}
-
-			const forecast = formatForecast(weather, type)
+		const ff = async () => {
+			const forecast = await fetchForecast(type, day, location, lang)
 			setForecast(forecast)
-			setISLoading(false)
 		}
-		asyncFetch()
+		ff()
+	}, [])
 
-		return () => {
-			abortController.abort()
-		}
-	}, [location, lang, type, day])
-
-	return {
-		// forecast based on given params
-		forecast,
-
-		// conditions
-		isLoading,
-		error,
+	console.log(forecast)
+	if (forecast) {
+		return formatForecast(forecast, type)
 	}
 }
 
@@ -134,7 +108,7 @@ export const fetchForecast = async (
 	lang = DEFAULT_LANG,
 	signal = null,
 ) => {
-	console.log(location)
+	console.log('[fetchForecast]')
 	switch (type) {
 		case API_FORECAST_TYPES.current:
 			return await axios.get(CURRENT_API_URL, {
@@ -154,7 +128,7 @@ export const fetchForecast = async (
 				},
 				params: {
 					q: location,
-					days: day,
+					days: +day,
 					lang: lang,
 				},
 				signal,

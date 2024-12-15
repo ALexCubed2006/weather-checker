@@ -1,18 +1,20 @@
 import { memo } from 'react'
-import { API_FORECAST_TYPES } from '../../config'
-import Modal from '../components/modal/Modal'
-import useDayTheme from '../hooks/theme/useDayTheme'
-import useWeatherForecast from '../hooks/weather/useWeatherForecast'
+import { useSelector } from 'react-redux'
+import { ROUTES } from '../../config'
 import Nav from '../components/nav/Nav'
 
 const Main = memo(() => {
-	console.log('[Main]')
-	const { forecast = null } = useWeatherForecast(API_FORECAST_TYPES.astronomy)
-	const astro = useDayTheme(forecast)
+	const location = useSelector((state) => state.weather.sity)
 	return (
 		<div>
-			<Nav type={'story'} />
-			{/* <Modal /> */}
+			<Nav
+				type={{
+					name: 'Main',
+					default: ROUTES.main,
+					forecast: ROUTES.sity + '/' + location,
+					story: ROUTES.story,
+				}}
+			/>
 		</div>
 	)
 })
