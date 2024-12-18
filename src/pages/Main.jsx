@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { ROUTES } from '../../config'
 import Nav from '../components/nav/Nav'
 import Searcher from '../components/searcher/Searcher'
+import WeatherScroller from '../components/weatherScroller/WeatherScroller'
 import styles from './Main.module.css'
 
 const Main = memo(() => {
@@ -10,7 +11,7 @@ const Main = memo(() => {
 	const location = useSelector((state) => state.weather.sity)
 	const current = useSelector((state) => state.weather.current)
 	const todayForecast = useSelector((state) => state.weather.forecast)
-	console.log(todayForecast)
+
 	return (
 		<div className={styles.nav}>
 			<Nav
@@ -23,6 +24,7 @@ const Main = memo(() => {
 				}}
 			/>
 			<Searcher />
+			<WeatherScroller />
 			<div>
 				{/* погода сейчас */}
 				{/* {JSON.stringify(current)} */}

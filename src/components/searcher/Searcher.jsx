@@ -17,6 +17,7 @@ export default function Searcher() {
 		navigate('/sity/' + search)
 	}
 
+	// TODO: добавить визуальное оповещение об ошибке
 	function checkInput(query) {
 		if (query === '') {
 			return false
@@ -29,6 +30,8 @@ export default function Searcher() {
 		return false
 	}
 
+	// TODO: добавить подсказки к input
+	// TODO: добавить debounce поиска
 	return (
 		<div>
 			<input
