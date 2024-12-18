@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { useSelector } from 'react-redux'
-import { ROUTES } from '../../config'
+import { INDICATOR_TYPES, ROUTES } from '../../config'
 import Nav from '../components/nav/Nav'
 import Searcher from '../components/searcher/Searcher'
 import WeatherScroller from '../components/weatherScroller/WeatherScroller'
@@ -25,8 +25,26 @@ const Main = memo(() => {
 			/>
 			<Searcher />
 
+			{/* TODO:TEAM решите какие оставить а какие убрать */}
 			{/* temperature */}
-			<WeatherScroller />
+			<p>Temperature</p>
+			<WeatherScroller type={INDICATOR_TYPES.temperature} />
+
+			{/* wind */}
+			<p>Wind</p>
+			<WeatherScroller type={INDICATOR_TYPES.wind} />
+
+			{/* humidity */}
+			<p>Humidity</p>
+			<WeatherScroller type={INDICATOR_TYPES.humidity} />
+
+			{/* pressure */}
+			<p>Pressure</p>
+			<WeatherScroller type={INDICATOR_TYPES.pressure} />
+
+			{/* clouds */}
+			<p>Clouds</p>
+			<WeatherScroller type={INDICATOR_TYPES.clouds} />
 			<div>
 				{/* погода сейчас */}
 				{/* {JSON.stringify(current)} */}

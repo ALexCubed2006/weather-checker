@@ -7,7 +7,7 @@ const WeatherScroller = ({ type = INDICATOR_TYPES.temperature }) => {
 	const currentHour = new Date().getHours()
 
 	if (!forecast[DEFAULT_DATE]) return <div>Loading...</div>
-	
+
 	const hours = forecast[DEFAULT_DATE].forecast.forecastday[0].hour
 	const tomorrowDays = forecast[DEFAULT_DATE].forecast.forecastday[1].hour
 
@@ -23,21 +23,22 @@ const WeatherScroller = ({ type = INDICATOR_TYPES.temperature }) => {
 		// TODO:TEAM стилизовать
 		<div className={styles.scroll}>
 			{filterHours.map((hour) => (
+				// TODO:TEAM можешь добавить стили на теги p
 				<span className={styles.hourContainer} key={hour.time}>
 					<p>{hour.time.split(' ')[1]}</p>
 					<p>
+						{/* TODO:TEAM: сюда можно не смотреть, там происходит магия */}
 						{type === INDICATOR_TYPES.temperature
-							? hour.temp_c
+							? hour.temp_c + '°C'
 							: type === INDICATOR_TYPES.wind
-							? hour.wind_kph
+							? hour.wind_kph + 'km/h'
 							: type === INDICATOR_TYPES.pressure
-							? hour.pressure_mb
+							? hour.pressure_mb + 'mb'
 							: type === INDICATOR_TYPES.clouds
-							? hour.cloud
+							? hour.cloud + '%'
 							: type === INDICATOR_TYPES.humidity
-							? hour.humidity
-							: hour.dewpoint_c}
-						°C
+							? hour.humidity + '%'
+							: hour.dewpoint_c + '°C'}
 					</p>
 				</span>
 			))}
@@ -46,17 +47,16 @@ const WeatherScroller = ({ type = INDICATOR_TYPES.temperature }) => {
 					<p>{hour.time.split(' ')[1]}</p>
 					<p>
 						{type === INDICATOR_TYPES.temperature
-							? hour.temp_c
+							? hour.temp_c + '°C'
 							: type === INDICATOR_TYPES.wind
-							? hour.wind_kph
+							? hour.wind_kph + 'km/h'
 							: type === INDICATOR_TYPES.pressure
-							? hour.pressure_mb
+							? hour.pressure_mb + 'mb'
 							: type === INDICATOR_TYPES.clouds
-							? hour.cloud
+							? hour.cloud + '%'
 							: type === INDICATOR_TYPES.humidity
-							? hour.humidity
-							: hour.dewpoint_c}
-						°C
+							? hour.humidity + '%'
+							: hour.dewpoint_c + '°C'}
 					</p>
 				</span>
 			))}
