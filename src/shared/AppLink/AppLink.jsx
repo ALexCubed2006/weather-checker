@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
 import styles from './AppLink.module.css'
 
-export default function AppLink({ children, pass, style = null }) {
+export default function AppLink({ children, path, style = null }) {
 	console.log('[AppLink]')
 	return (
 		
-		<Link to={pass} className={styles.link} style={style}>
+		<Link to={path} className={styles.link} style={style}>
 			{children}
 		</Link>
 	)

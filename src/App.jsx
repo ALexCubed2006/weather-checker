@@ -69,7 +69,6 @@ export default function App() {
 		<ThemeContext.Provider value={theme}>
 			<LanguageContext.Provider value={LANGUAGES.ru}>
 				<LocationContext.Provider value={DEFAULT_LOCATION}>
-					{JSON.stringify(theme)}
 					<Routes>
 						<Route path={ROUTES.main} element={<Main />} />
 						<Route path={ROUTES.story} element={<Story />} />
