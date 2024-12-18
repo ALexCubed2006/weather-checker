@@ -1,24 +1,42 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
-import { ROUTES } from '../../config'
+import { API_FORECAST_TYPES, ROUTES } from '../../config'
 import Nav from '../components/nav/Nav'
+import {
+	fetchForecast,
+	formatForecast,
+} from '../hooks/weather/useWeatherForecast'
 
 const SityForecast = memo(() => {
 	const location = useSelector((state) => state.weather.sity)
 	const { pathname } = useLocation()
+
+	useEffect(() => {
+		const fc = async () => {
+			const forecast = await fetchForecast(
+				API_FORECAST_TYPES.current,
+				1,
+				pathname,
+			)
+			const formatted = formatForecast(forecast)
+			console.log(formatted)
+		}
+		fc()
+	}, [location])
+
 	return (
 		<div>
 			<Nav
 				type={{
 					name: 'Sity',
 					default: pathname,
-					forecast: pathname + '/' + location,
+					forecast: pathname,
 					story: ROUTES.story,
 					home: ROUTES.main,
 				}}
 			/>
-			<div>{pathname}</div>
+			<div>{pathname.split('/').slice(-1)[0].split('%20').join(' ')}</div>
 		</div>
 	)
 })

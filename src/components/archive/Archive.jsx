@@ -1,6 +1,7 @@
 import { memo, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { API_FORECAST_TYPES } from '../../../config'
+import { API_DEFAULT_FORECAST_TYPES, API_FORECAST_TYPES } from '../../../config'
+import useDate from '../../hooks/weather/useDate'
 import { fetchForecast } from '../../hooks/weather/useWeatherForecast'
 import { addHistory } from '../../redux/weather.slice'
 import ForecastCard from '../forecastCard/ForecastCard'
@@ -13,7 +14,11 @@ const Archive = memo(() => {
 
 	useEffect(() => {
 		const fh = async (dt) => {
-			const forecast = await fetchForecast(API_FORECAST_TYPES.history, dt)
+			const forecast = await fetchForecast(
+				API_FORECAST_TYPES.history,
+				dt,
+				location,
+			)
 			setHistory((history) => [
 				...history,
 				forecast.data.forecast.forecastday[0],
@@ -23,16 +28,11 @@ const Archive = memo(() => {
 		}
 
 		for (let i = 1; i <= 7; i++) {
-			const dt = getIsoDateWeekAgo(i)
+			const dt = useDate(i, API_DEFAULT_FORECAST_TYPES.history)
 			fh(dt)
 		}
-	}, [])
+	}, [location])
 
-	function getIsoDateWeekAgo(day) {
-		const date = new Date()
-		date.setDate(date.getDate() - day)
-		return date.toISOString().slice(0, 10)
-	}
 	return (
 		<div className={styles.archive}>
 			{/* список дней */}
