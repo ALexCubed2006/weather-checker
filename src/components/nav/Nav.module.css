@@ -1,3 +1,21 @@
 .nav {
 	/* TODO:TEAM добавить стили */
+	position: fixed;
+	top:0;
+	left:0;
+	width: 100%;
+	padding: 20px 10%;
+	background: transparent;
+	display: flex;
+	justify-content: space-between;
+	z-index: 100;
+	align-items: center;
+	font-family: "Poppins", serif;
+	font-weight: 700;
+	color: white;
 }
+
+.logo{
+	font-weight: 700;
+}
+
