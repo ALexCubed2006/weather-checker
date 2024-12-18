@@ -67,6 +67,14 @@ export const ROUTES = {
 	sity: '/sity',
 }
 
+export const INDICATOR_TYPES = {
+	temperature: 'temperature',
+	wind: 'wind',
+	pressure: 'pressure',
+	clouds: 'clouds',
+	humidity: 'humidity',
+}
+
 // TODO: добавить больше городов
 export const Locations = [
 	'St. Petersburg',

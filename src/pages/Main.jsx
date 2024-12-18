@@ -24,6 +24,8 @@ const Main = memo(() => {
 				}}
 			/>
 			<Searcher />
+
+			{/* temperature */}
 			<WeatherScroller />
 			<div>
 				{/* погода сейчас */}
