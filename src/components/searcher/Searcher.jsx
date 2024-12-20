@@ -1,41 +1,60 @@
-import { useEffect, useRef, useState } from 'react'
-import { API_FORECAST_TYPES } from '../../../config'
-import { fetchForecast } from '../../hooks/weather/useWeatherForecast'
+import { useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Locations } from '../../../config'
 
 export default function Searcher() {
-	const abortController = new AbortController()
+	const navigate = useNavigate()
+	const [search, setSearch] = useState('')
+	const buttonRef = useRef(null)
 	const inputRef = useRef(null)
-	const [query, setQuery] = useState('Minsk')
-	const [weather, setWeather] = useState({})
 
-	useEffect(() => {
-		const forecast = async () => {
-			const f = await fetchForecast(
-				API_FORECAST_TYPES.current,
-				null,
-				query,
-				'ru',
-				abortController.signal,
-			)
-			setWeather(f)
+	function handleSearch() {
+		if (!checkInput(search)) {
+			console.log('not found')
+			return
 		}
-		forecast()
 
-		return () => abortController.abort()
-	}, [query])
+		navigate('/sity/' + search)
+	}
 
+	// TODO: добавить визуальное оповещение об ошибке
+	function checkInput(query) {
+		if (query === '') {
+			return false
+		}
+
+		if (Locations.includes(query)) {
+			return true
+		}
+
+		return false
+	}
+
+	// TODO: добавить подсказки к input
+	// TODO: добавить debounce поиска
 	return (
 		<div>
-			<input type='text' ref={inputRef} />
-			<button
-				onClick={() => {
-					setQuery(inputRef.current.value)
-					inputRef.current.value = ''
+			<input
+				style={{ color: 'black' }}
+				ref={inputRef}
+				type='text'
+				value={search}
+				onChange={(e) => setSearch(e.target.value)}
+				onKeyDown={(e) => {
+					if (e.key === 'Enter') {
+						buttonRef.current.click()
+						inputRef.current.blur()
+					}
+					if (e.key === 'Escape') {
+						inputRef.current.value = ''
+						setSearch('')
+						inputRef.current.blur()
+					}
 				}}
-			>
+			/>
+			<button onClick={handleSearch} ref={buttonRef}>
 				Search
 			</button>
-			{JSON.stringify(weather.data)}
 		</div>
 	)
 }

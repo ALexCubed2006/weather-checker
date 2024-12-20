@@ -31,6 +31,8 @@ export default function useDayTheme(forecast) {
 
 	const isDay = localTime > sunRiseHour && localTime < sunSetHour
 
+	console.log(isDay, sunRiseHour, sunSetHour, moonRiseHour, moonSetHour)
+
 	return {
 		theme: isDay ? THEMES.light : THEMES.dark,
 		moonphase: forecast.astro.moon_phase,

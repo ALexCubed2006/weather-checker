@@ -1,3 +1,27 @@
 .link {
 	/* TODO:TEAM добавить стили */
+	font-family: "Poppins", serif;
+	font-weight: 400;
+	font-style: normal;
+	color: white;
+	text-decoration: none;
+	margin-left: 40px;
 }
+
+.link::before{
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background: white;
+	transition: .3s;
+}
+
+.link:hover::before{
+    width: 100%;
+}
+
+
+  
