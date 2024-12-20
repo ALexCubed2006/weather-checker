@@ -1,1 +1,7 @@
 /* TODO:TEAM добавить стили */
+
+/* TODO:TEAM из вариантов сделать свой скроллер */
+.archive {
+	height: 80vh;
+	overflow-y: scroll;
+}

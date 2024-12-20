@@ -9,16 +9,17 @@ export default function Nav({ type }) {
 				{/* TODO:TEAM добавить logo */}
 				LOGO
 			</div>
-            <div className={styles.links}>
-			<AppLink pass={type.home}>Home</AppLink>
+			<div className={styles.links}>
+				<AppLink path={type.home}>Home</AppLink>
 
-			{/* TODO:TEAM стилизовать и добавить иконки в теги */}
-			<AppLink pass={type.default}>
-				{/* сюда иконку вставить */}
-				Default
-			</AppLink>
-			<AppLink pass={type.forecast}>Forecast</AppLink>
-			<AppLink pass={type.story}>Archive</AppLink></div>
+				{/* TODO:TEAM стилизовать и добавить иконки в теги */}
+				<AppLink path={type.default}>
+					{/* сюда иконку вставить */}
+					Default
+				</AppLink>
+				<AppLink path={type.forecast}>Forecast</AppLink>
+				<AppLink path={type.story}>Archive</AppLink>
+			</div>
 		</div>
 	)
 }

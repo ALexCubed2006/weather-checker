@@ -1,9 +1,10 @@
 import React, { memo } from 'react'
+import styles from './ForecastCard.module.css'
 
 const ForecastCard = memo(({ forecast, day }) => {
 	console.log('[ForecastCard]', forecast)
 	return (
-		<div>
+		<div className={styles.class}>
 			<div>{day}</div>
 			<div>
 				<div>
