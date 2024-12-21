@@ -19,6 +19,7 @@ const Archive = memo(() => {
 				dt,
 				location,
 			)
+
 			setHistory((history) => [
 				...history,
 				forecast.data.forecast.forecastday[0],

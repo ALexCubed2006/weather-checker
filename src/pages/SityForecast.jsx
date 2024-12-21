@@ -2,6 +2,7 @@ import React, { memo, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { API_FORECAST_TYPES, ROUTES } from '../../config'
+import Footer from '../components/footer/Footer'
 import Nav from '../components/nav/Nav'
 import {
 	fetchForecast,
@@ -37,6 +38,8 @@ const SityForecast = memo(() => {
 				}}
 			/>
 			<div>{pathname.split('/').slice(-1)[0].split('%20').join(' ')}</div>
+
+			<Footer />
 		</div>
 	)
 })

@@ -15,7 +15,7 @@ export default function Nav({ type }) {
 				{/* TODO:TEAM стилизовать и добавить иконки в теги */}
 				<AppLink path={type.default}>
 					{/* сюда иконку вставить */}
-					Default
+					This Page
 				</AppLink>
 				<AppLink path={type.forecast}>Forecast</AppLink>
 				<AppLink path={type.story}>Archive</AppLink>

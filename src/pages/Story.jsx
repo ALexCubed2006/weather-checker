@@ -25,6 +25,7 @@ const Story = memo(() => {
 			<div>
 				<AppLink path={ROUTES.main}>Go Home</AppLink>
 			</div>
+			
 			<Footer />
 		</div>
 	)

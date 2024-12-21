@@ -1,4 +1,3 @@
-// TODO: move to github env variables
 export const WEATHER_API_KEY = '15a662508ba94518964174204241511'
 
 // api url
@@ -44,7 +43,14 @@ export const DEFAULT_LANG = localStorage.getItem('lang')
 	? localStorage.getItem('lang')
 	: LANGUAGES.ru
 
-export const DEFAULT_DATE = new Date().toISOString().split('T')[0]
+const date = new Date()
+export const DEFAULT_DATE =
+	date.getHours() < 21
+		? date.toISOString().split('T')[0]
+		: (() => {
+				date.setDate(date.getDate() + 1)
+				return date.toISOString().split('T')[0]
+		  })()
 export const DEFAULT_DAYS_COUNT = 3
 
 // api types
@@ -75,7 +81,6 @@ export const INDICATOR_TYPES = {
 	humidity: 'humidity',
 }
 
-// TODO: добавить больше городов
 export const Locations = [
 	'St. Petersburg',
 	'London',
@@ -1481,7 +1486,7 @@ export const Locations = [
 	'clearwater',
 ]
 
-export const Langs = [	
+export const Langs = [
 	'af',
 	'sq',
 	'ar',

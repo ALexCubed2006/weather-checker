@@ -1,6 +1,8 @@
 import { memo } from 'react'
 import { useSelector } from 'react-redux'
-import { INDICATOR_TYPES, ROUTES } from '../../config'
+import { DEFAULT_DATE, INDICATOR_TYPES, ROUTES } from '../../config'
+import Footer from '../components/footer/Footer'
+import InfoPanel from '../components/infoPanel/InfoPanel'
 import Nav from '../components/nav/Nav'
 import Searcher from '../components/searcher/Searcher'
 import WeatherScroller from '../components/weatherScroller/WeatherScroller'
@@ -9,9 +11,9 @@ import styles from './Main.module.css'
 const Main = memo(() => {
 	console.log('[Main]')
 	const location = useSelector((state) => state.weather.sity)
-	const current = useSelector((state) => state.weather.current)
-	const todayForecast = useSelector((state) => state.weather.forecast)
 
+	console.log(new Date().getHours())
+	console.log(DEFAULT_DATE)
 	return (
 		<div className={styles.nav}>
 			<Nav
@@ -45,14 +47,10 @@ const Main = memo(() => {
 			{/* clouds */}
 			<p>Clouds</p>
 			<WeatherScroller type={INDICATOR_TYPES.clouds} />
-			<div>
-				{/* погода сейчас */}
-				{/* {JSON.stringify(current)} */}
-			</div>
-			<div>
-				{/* прогноз на день */}
-				{/* {JSON.stringify(todayForecast)} */}
-			</div>
+
+			<InfoPanel />
+
+			<Footer />
 		</div>
 	)
 })

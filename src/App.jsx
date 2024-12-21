@@ -40,9 +40,8 @@ export default function App() {
 			const astronomy = await fetchForecast(API_FORECAST_TYPES.astronomy)
 
 			dispatch(setAstro(astronomy.data))
-
 			// theme
-			const theme = useDayTheme(astronomy.data)
+			const theme = useDayTheme(astronomy.data.astronomy)
 
 			dispatch(setTheme(theme))
 
@@ -64,6 +63,8 @@ export default function App() {
 
 	const theme = useSelector((state) => state.weather.theme)
 	if (!theme) return null
+
+	console.log(theme)
 
 	return (
 		<ThemeContext.Provider value={theme}>

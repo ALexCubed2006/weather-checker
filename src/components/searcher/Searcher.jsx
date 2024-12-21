@@ -3,13 +3,21 @@ import { useNavigate } from 'react-router-dom'
 import { Locations } from '../../../config'
 
 export default function Searcher() {
+	console.log('[Searcher]')
 	const navigate = useNavigate()
 	const [search, setSearch] = useState('')
+	const [isCheckPassed, setIsCheckPassed] = useState(false)
 	const buttonRef = useRef(null)
 	const inputRef = useRef(null)
 
+	// TODO:TEAM добавить стили для кнопки
+	const buttonStyles = {
+		// если isCheckPassed === true применяются первые стили, иначе вторые
+		backgroundColor: isCheckPassed ? 'green' : 'red',
+	}
+
 	function handleSearch() {
-		if (!checkInput(search)) {
+		if (!isCheckPassed) {
 			console.log('not found')
 			return
 		}
@@ -17,29 +25,34 @@ export default function Searcher() {
 		navigate('/sity/' + search)
 	}
 
-	// TODO: добавить визуальное оповещение об ошибке
 	function checkInput(query) {
+		console.log('[checkInput]', query)
 		if (query === '') {
-			return false
+			setIsCheckPassed(() => false)
 		}
 
 		if (Locations.includes(query)) {
-			return true
+			console.log('found')
+			setIsCheckPassed(() => true)
 		}
 
-		return false
+		if (!Locations.includes(query)) {
+			setIsCheckPassed(() => false)
+		}
 	}
 
-	// TODO: добавить подсказки к input
-	// TODO: добавить debounce поиска
 	return (
 		<div>
 			<input
+				// TODO:TEAM добавить стили
 				style={{ color: 'black' }}
 				ref={inputRef}
 				type='text'
 				value={search}
-				onChange={(e) => setSearch(e.target.value)}
+				onChange={(e) => {
+					setSearch(e.target.value)
+					checkInput(e.target.value)
+				}}
 				onKeyDown={(e) => {
 					if (e.key === 'Enter') {
 						buttonRef.current.click()
@@ -52,7 +65,12 @@ export default function Searcher() {
 					}
 				}}
 			/>
-			<button onClick={handleSearch} ref={buttonRef}>
+			<button
+				onClick={handleSearch}
+				ref={buttonRef}
+				style={buttonStyles}
+				disabled={!isCheckPassed}
+			>
 				Search
 			</button>
 		</div>
