@@ -10,13 +10,13 @@ export default function Nav({ type }) {
 				LOGO
 			</div>
 			<div className={styles.links}>
-				<AppLink path={type.home}>Home</AppLink>
-
 				{/* TODO:TEAM стилизовать и добавить иконки в теги */}
 				<AppLink path={type.default}>
 					{/* сюда иконку вставить */}
 					This Page
 				</AppLink>
+				<AppLink path={type.home}>Home</AppLink>
+
 				<AppLink path={type.forecast}>Forecast</AppLink>
 				<AppLink path={type.story}>Archive</AppLink>
 			</div>

@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react'
+import { memo, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { API_FORECAST_TYPES, ROUTES } from '../../config'
@@ -11,6 +11,7 @@ import {
 
 const SityForecast = memo(() => {
 	const location = useSelector((state) => state.weather.sity)
+	const [forecast, setForecast] = useState(null)
 	const { pathname } = useLocation()
 
 	useEffect(() => {
@@ -21,6 +22,7 @@ const SityForecast = memo(() => {
 				pathname,
 			)
 			const formatted = formatForecast(forecast)
+			setForecast(formatted)
 			console.log(formatted)
 		}
 		fc()
@@ -37,7 +39,52 @@ const SityForecast = memo(() => {
 					home: ROUTES.main,
 				}}
 			/>
-			<div>{pathname.split('/').slice(-1)[0].split('%20').join(' ')}</div>
+
+			<div>
+				{forecast && (
+					<>
+						{/* TODO:TEAM стилизовать */}
+						{/* если надо, могу расширить компонент новыми полями */}
+						<div>
+							{/* location */}
+							{forecast.location.name}
+							{forecast.location.region}
+							{forecast.location.country}
+						</div>
+
+						<div>
+							{/* last update */}
+							{forecast.lastUpdated}
+						</div>
+
+						<div>
+							{/* temp */}
+							{forecast.temp.temp_c}
+							{forecast.temp.feelslike_c}
+						</div>
+
+						<div>
+							{/* humidity */}
+							{forecast.humidity.current}
+							{forecast.humidity.dewpoint}
+						</div>
+
+						<div>
+							{/* condition */}
+							{forecast.condition}
+						</div>
+
+						<div>
+							{/* wind */}
+							{forecast.wind.current}
+							{forecast.wind.direction.degrees}
+							{forecast.wind.direction.direction}
+							{forecast.wind.gust}
+							{forecast.wind.windchill}
+						</div>
+					</>
+				)}
+			</div>
 
 			<Footer />
 		</div>
