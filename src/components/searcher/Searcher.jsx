@@ -31,12 +31,12 @@ export default function Searcher() {
 			setIsCheckPassed(() => false)
 		}
 
-		if (Locations.includes(query)) {
+		if (Locations.includes(query.toLowerCase())) {
 			console.log('found')
 			setIsCheckPassed(() => true)
 		}
 
-		if (!Locations.includes(query)) {
+		if (!Locations.includes(query.toLowerCase())) {
 			setIsCheckPassed(() => false)
 		}
 	}
