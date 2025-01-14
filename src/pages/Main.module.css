@@ -4,8 +4,7 @@
 	color: white;
 }
 body {
-	background: url("src/public/фон.png")
-		no-repeat;
+	background: url('src/public/фон.png') no-repeat;
 	background-size: cover;
 	min-height: 100vh;
 }

@@ -37,7 +37,6 @@ const Archive = memo(() => {
 	return (
 		<div className={styles.archive}>
 			{/* список дней */}
-			{/* FIXME: пофиксить порядок загрузки дней */}
 			{history.map((day, index) => {
 				return (
 					<ForecastCard key={index} forecast={day} day={day.date} />

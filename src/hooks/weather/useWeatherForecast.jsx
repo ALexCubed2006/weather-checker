@@ -13,7 +13,6 @@ import {
 } from '../../../config'
 import useRandomParams from './useRandomParams'
 
-// TODO: redo
 export default function useWeatherForecast(
 	type = API_FORECAST_TYPES.current,
 	location = DEFAULT_LOCATION,
