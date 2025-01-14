@@ -10,16 +10,16 @@ const ForecastCard = memo(({ forecast, day }) => {
 				<div>
 					<div>
 						Максимальная температура : 
-						{forecast.day.maxtemp_c}
+						{forecast.day.maxtemp_c + '°C'}
 					</div>
 
 					<div>
 						Минимальная температура :
-						{forecast.day.mintemp_c}
+						{forecast.day.mintemp_c + '°C'}
 					</div>
 					<div>
 						Средняя температура:
-						{forecast.day.avgtemp_c}
+						{forecast.day.avgtemp_c + '°C'}
 					</div>
 				</div>
 				<img src={forecast.day.condition.icon} />

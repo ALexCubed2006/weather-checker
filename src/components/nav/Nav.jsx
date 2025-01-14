@@ -13,7 +13,7 @@ export default function Nav({ type }) {
 				{/* TODO:TEAM стилизовать и добавить иконки в теги */}
 				<AppLink path={type.default}>
 					{/* сюда иконку вставить */}
-					Эта страница
+					Главная
 				</AppLink>
 				<AppLink path={type.home}>Домой</AppLink>
 
