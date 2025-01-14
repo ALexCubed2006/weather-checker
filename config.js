@@ -8,7 +8,7 @@ export const CURRENT_API_URL = 'https://api.weatherapi.com/v1/current.json'
 export const ASTRO_API_URL = 'https://api.weatherapi.com/v1/astronomy.json'
 
 // constants
-export const LANGUAGES = { ru: 'Русский', en: 'English' }
+export const LANGUAGES = { ru: 'ru', en: 'en' }
 export const THEMES = { light: 'light', dark: 'dark', default: 'light' }
 export const DEFAULT_SITY = 'Minsk'
 
