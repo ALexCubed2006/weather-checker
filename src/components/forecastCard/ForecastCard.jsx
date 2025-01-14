@@ -5,8 +5,8 @@ const ForecastCard = memo(({ forecast, day }) => {
 	console.log('[ForecastCard]', forecast)
 	return (
 		<div className={styles.class}>
-			<div>{day}</div>
-			<div>
+			<div className={styles.day}>{day}</div>
+			<div className={styles.forecastInfo}>
 				<div>
 					<div>
 						Максимальная температура : 
@@ -22,7 +22,7 @@ const ForecastCard = memo(({ forecast, day }) => {
 						{forecast.day.avgtemp_c + '°C'}
 					</div>
 				</div>
-				<img src={forecast.day.condition.icon} />
+				<img className = {styles.wheaterIcon}src={forecast.day.condition.icon} />
 
 				<div>
 					Влажность : 

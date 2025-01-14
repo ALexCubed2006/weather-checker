@@ -1,5 +1,29 @@
 /* TODO:TEAM добавить стили */
 /* TODO:TEAM этот элемент бужет общим для прогнозов на следующие и предыдущие дни */
 .class{
+    display: flex;
+}
+.forecastInfo{
+
+    justify-content: center;
+    margin: 5%;
+    padding: 2%;
+    border-radius: 20px;
+    background-color: rgba(240, 248, 255, 0.412);
     
+}
+.day{
+    margin: 0 10%;
+    margin: 5%;
+    padding: 2%;
+    border-radius: 20px;
+    background-color: rgba(240, 248, 255, 0.412);
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 50px;
+    align-items: center;
+}
+.wheaterIcon{
+    padding: 2%;
+    justify-content: center;
 }
