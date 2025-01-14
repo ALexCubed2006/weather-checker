@@ -2,6 +2,9 @@
 
 /* TODO:TEAM из вариантов сделать свой скроллер */
 .archive {
+	display: flex;
+	flex-direction: column;
+    padding: 10px;
 	height: 80vh;
 	overflow-y: scroll;;
 }
