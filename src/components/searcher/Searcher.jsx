@@ -67,6 +67,7 @@ export default function Searcher() {
 						inputRef.current.blur()
 					}
 				}}
+				placeholder='введите город'
 			/>
 			<button
 				onClick={handleSearch}
