@@ -331,7 +331,7 @@ export const Locations = [
 	'corona',
 	'eugene',
 	'mcallen',
-	'fort collins',
+	'fort',
 	'lancaster',
 	'cary',
 	'palmdale',
