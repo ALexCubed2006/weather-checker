@@ -29,23 +29,23 @@ const Main = memo(() => {
 
 			{/* TODO:TEAM решите какие оставить а какие убрать */}
 			{/* temperature */}
-			<p>Temperature</p>
+			<p>Температураe</p>
 			<WeatherScroller type={INDICATOR_TYPES.temperature} />
 
 			{/* wind */}
-			<p>Wind</p>
+			<p>Ветер</p>
 			<WeatherScroller type={INDICATOR_TYPES.wind} />
 
 			{/* humidity */}
-			<p>Humidity</p>
+			<p>Влажность</p>
 			<WeatherScroller type={INDICATOR_TYPES.humidity} />
 
 			{/* pressure */}
-			<p>Pressure</p>
+			<p>Давление</p>
 			<WeatherScroller type={INDICATOR_TYPES.pressure} />
 
 			{/* clouds */}
-			<p>Clouds</p>
+			<p>Облачность</p>
 			<WeatherScroller type={INDICATOR_TYPES.clouds} />
 
 			<InfoPanel />

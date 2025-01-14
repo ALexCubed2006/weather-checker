@@ -9,28 +9,28 @@ const ForecastCard = memo(({ forecast, day }) => {
 			<div>
 				<div>
 					<div>
-						Max temp:
+						Максимальная температура : 
 						{forecast.day.maxtemp_c}
 					</div>
 
 					<div>
-						Min temp:
+						Минимальная температура :
 						{forecast.day.mintemp_c}
 					</div>
 					<div>
-						Avg temp:
+						Средняя температура:
 						{forecast.day.avgtemp_c}
 					</div>
 				</div>
 				<img src={forecast.day.condition.icon} />
 
 				<div>
-					Humidity
-					{forecast.day.avghumidity}%
+					Влажность : 
+					{forecast.day.avghumidity }%
 				</div>
 				<div>
-					Precipitation
-					{forecast.day.totalprecip_mm}
+					Осадки :
+					{forecast.day.totalprecip_mm + ' '} мм рт.ст
 				</div>
 			</div>
 		</div>

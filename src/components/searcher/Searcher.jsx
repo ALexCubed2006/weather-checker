@@ -71,7 +71,7 @@ export default function Searcher() {
 				style={buttonStyles}
 				disabled={!isCheckPassed}
 			>
-				Search
+				Поиск
 			</button>
 		</div>
 	)

@@ -23,7 +23,7 @@ const Story = memo(() => {
 			/>
 			<Archive />
 			<div>
-				<AppLink path={ROUTES.main}>Go Home</AppLink>
+				<AppLink path={ROUTES.main}>На главную</AppLink>
 			</div>
 			
 			<Footer />

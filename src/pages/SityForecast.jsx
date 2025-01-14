@@ -47,14 +47,14 @@ const SityForecast = memo(() => {
 						{/* если надо, могу расширить компонент новыми полями */}
 						<div>
 							{/* location */}
-							{forecast.location.name}
-							{forecast.location.region}
-							{forecast.location.country}
+							Город : {forecast.location.name}
+							<div>Область : {forecast.location.region}</div>
+							<div>Страна : {forecast.location.country}</div>
 						</div>
 
 						<div>
 							{/* last update */}
-							{forecast.lastUpdated}
+							Последнее обновление : {forecast.lastUpdated}
 						</div>
 
 						<div>
@@ -65,22 +65,30 @@ const SityForecast = memo(() => {
 
 						<div>
 							{/* humidity */}
-							{forecast.humidity.current}
-							{forecast.humidity.dewpoint}
+							Влажность : {forecast.humidity.current + '%'}
+							<div>
+								Точка росы : {forecast.humidity.dewpoint + '°C'}
+							</div>
 						</div>
 
 						<div>
 							{/* condition */}
-							{forecast.condition}
+							Погодные условия : {forecast.condition}
 						</div>
 
 						<div>
 							{/* wind */}
-							{forecast.wind.current}
-							{forecast.wind.direction.degrees}
+							Ветер : {forecast.wind.current + ' км/ч'}
+							<div>
+						    Направление: {forecast.wind.direction.degrees}
 							{forecast.wind.direction.direction}
-							{forecast.wind.gust}
-							{forecast.wind.windchill}
+						</div>
+						<div>
+						    Порыв : {forecast.wind.gust + ' км/с'}
+						</div>
+						<div>
+						    температура с учетом ветра : {forecast.wind.windchill + '°C'}
+						</div>
 						</div>
 					</>
 				)}

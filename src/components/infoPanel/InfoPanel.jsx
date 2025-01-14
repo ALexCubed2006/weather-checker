@@ -28,28 +28,27 @@ const InfoPanel = () => {
 
 			<div>
 				{/* temperature */}
-				{current.temp.current + '°C'}
-				{current.temp.feelslike + '°C'}
+				Температура : {current.temp.current + '°C'}
+				<div>Ощущается как : {current.temp.feelslike + '°C'}</div>
 			</div>
 
 			<div>
 				{/* humidity */}
-				{current.humidity.current + '%'}
-				{current.humidity.dewpoint + '%'}
+				Влажность : {current.humidity.current + '%'}
+				<div>Точка росы : {current.humidity.dewpoint + '%'}</div>
 			</div>
 
 			<div>
 				{/* wind */}
-				{current.wind.current + ' km/h'}
-				{current.wind.gust + ' km/h'}
-				{current.wind.windchill + '°'}
-				{current.wind.direction.degrees + '°'}
+				Ветер : {current.wind.current + ' км/ч'}
+				<div>Температура с учетом ветра : {current.wind.windchill + '°C'}</div>
+				Направление : {current.wind.direction.degrees + '°'}
 				{current.wind.direction.direction}
 			</div>
 
 			<div>
 				{/* last update of forecast */}
-				{current.lastUpdated}
+				Последнее обновление : {current.lastUpdated}
 			</div>
 		</div>
 	)

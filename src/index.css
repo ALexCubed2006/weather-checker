@@ -1,7 +1,10 @@
 /* TODO:TEAM сюда добавлять глобальные стили */
+@font-face{font-family:Bowler;
+	 src: url("D:\лабыСевер\врпоПРОЕКТ\weather-checker\public\ofont.ru_Bowler.ttf")}
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	position: relative;
+	font-family: Bowler;
 }
