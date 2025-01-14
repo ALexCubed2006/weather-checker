@@ -4,7 +4,7 @@
 	color: white;
 }
 body {
-	background: url("D:\лабыСевер\врпоПРОЕКТ\weather-checker\public\фон.png")
+	background: url("src/public/фон.png")
 		no-repeat;
 	background-size: cover;
 	min-height: 100vh;
