@@ -11,10 +11,6 @@ export default function Nav({ type }) {
 			</div>
 			<div className={styles.links}>
 				{/* TODO:TEAM стилизовать и добавить иконки в теги */}
-				<AppLink path={type.default}>
-					{/* сюда иконку вставить */}
-					Главная
-				</AppLink>
 				<AppLink path={type.home}>Домой</AppLink>
 
 				<AppLink path={type.forecast}>прогноз</AppLink>

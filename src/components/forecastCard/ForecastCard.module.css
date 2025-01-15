@@ -19,17 +19,30 @@
     padding: 2%;
     border-radius: 20px;
     display: flex;
-    flex-wrap: wrap;
-    font-size: 40px;
+    flex-direction: row;
     align-items: center;
+    gap: 5px;
 }
 .wheaterIcon{
-    padding: 2%;
+    align-self: center;
     justify-content: center;
 }
 
-.forecastInfo .firstColumn{
+.firstColumn{
   display: flex;
   flex-direction: column;
-  
+  margin: 2% 12px;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+.yearDay{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-self: flex-start;
+    padding: 27% 0;
+}
+.num{
+    font-size: 80px;
 }

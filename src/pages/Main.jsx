@@ -15,7 +15,7 @@ const Main = memo(() => {
 	console.log(new Date().getHours())
 	console.log(DEFAULT_DATE)
 	return (
-		<div className={styles.nav}>
+		<div>
 			<Nav
 				type={{
 					name: 'Main',
@@ -29,28 +29,42 @@ const Main = memo(() => {
 
 			{/* TODO:TEAM решите какие оставить а какие убрать */}
 			{/* temperature */}
-			<p>Температураe</p>
+			<div className={styles.scrollHours}>
+			
+			<div>
+			<h1>Почасовой прогноз</h1>
+			<p>Температура</p>
 			<WeatherScroller type={INDICATOR_TYPES.temperature} />
+			</div>
 
 			{/* wind */}
+			<div>
 			<p>Ветер</p>
 			<WeatherScroller type={INDICATOR_TYPES.wind} />
+			</div>
 
 			{/* humidity */}
+			<div>
 			<p>Влажность</p>
 			<WeatherScroller type={INDICATOR_TYPES.humidity} />
+			</div>
 
 			{/* pressure */}
+			<div>
 			<p>Давление</p>
 			<WeatherScroller type={INDICATOR_TYPES.pressure} />
+			</div>
 
 			{/* clouds */}
+			<div>
 			<p>Облачность</p>
 			<WeatherScroller type={INDICATOR_TYPES.clouds} />
+			</div>
 
 			<InfoPanel />
 
 			<Footer />
+		</div>
 		</div>
 	)
 })

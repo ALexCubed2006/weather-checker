@@ -115,6 +115,7 @@ const ForecastCard = memo(({ forecast, day }) => {
 		month: 'long',
 		day: 'numeric',
 	}).format(date)
+    const formattedDateSplitted = formattedDate.split(' ')
 
 	const icon =
 		icons[theme.theme === 'light' ? 'day' : 'night'][
@@ -129,26 +130,33 @@ const ForecastCard = memo(({ forecast, day }) => {
 	console.log('[ForecastCard]', forecast)
 	return (
 		<div className={styles.class}>
-			<div className={styles.day}>{formattedDate}</div>
+			<div className={styles.day}>
+				<div className={styles.num}>{formattedDateSplitted[0]}</div>
+			<div className={styles.yearDay}>
+			<div>{formattedDateSplitted[1]}</div>
+			<div>{formattedDateSplitted[2]}</div>
+			</div>
+			</div>
 			<div className={styles.forecastInfo}>
 				<div className={styles.firstColumn}>
 					<div>
-						Максимальная температура :
+						Макс. температура :
 						{forecast.day.maxtemp_c + '°C'}
 					</div>
 
 					<div>
-						Минимальная температура :{forecast.day.mintemp_c + '°C'}
+						Мин. температура :{forecast.day.mintemp_c + '°C'}
 					</div>
 					<div>
-						Средняя температура:
+						Средняя :
 						{forecast.day.avgtemp_c + '°C'}
 					</div>
 				</div>
 				<img className={styles.wheaterIcon} src={icon} />
-
+                <div className={styles.firstColumn}>
 				<div>Влажность :{forecast.day.avghumidity}%</div>
 				<div>Осадки :{forecast.day.totalprecip_mm + ' '} мм рт.ст</div>
+				</div>
 				</div>
 			</div>
 		

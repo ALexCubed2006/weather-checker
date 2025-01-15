@@ -7,6 +7,9 @@ button:hover{
     float: right;
 
 }
+.input::placeholder{
+    color: rgba(0, 0, 0, 0.496);
+}
 .searchline{
     padding: 0 40px 40px 40px;
     border-radius: 10px;  

@@ -14,7 +14,7 @@ export default function Searcher() {
 	// TODO:TEAM добавить стили для кнопки
 	const buttonStyles = {
 		// если isCheckPassed === true применяются первые стили, иначе вторые
-		backgroundColor: isCheckPassed ? 'green' : 'black',
+		backgroundColor: isCheckPassed ? 'gray' : 'black',
 	}
 
 	function handleSearch() {
