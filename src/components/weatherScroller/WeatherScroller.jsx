@@ -6,7 +6,6 @@ const WeatherScroller = ({ type = INDICATOR_TYPES.temperature }) => {
 	const forecast = useSelector((state) => state.weather.forecast)
 	const currentHour = new Date().getHours()
 
-	console.log(forecast)
 
 	if (!forecast[DEFAULT_DATE]) return <div>Loading...</div>
 
@@ -21,7 +20,6 @@ const WeatherScroller = ({ type = INDICATOR_TYPES.temperature }) => {
 		return hour.time.split(' ')[1].split(':')[0] <= currentHour
 	})
 
-	console.log(filterHours, filterTomorrowHours)
 
 	return (
 		// TODO:TEAM стилизовать

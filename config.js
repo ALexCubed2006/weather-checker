@@ -6,10 +6,12 @@ export const FORECAST_API_URL = 'https://api.weatherapi.com/v1/forecast.json'
 export const HISTORY_API_URL = 'https://api.weatherapi.com/v1/history.json'
 export const CURRENT_API_URL = 'https://api.weatherapi.com/v1/current.json'
 export const ASTRO_API_URL = 'https://api.weatherapi.com/v1/astronomy.json'
+export const ICON_API_URL = 'https://cdn.weatherapi.com/weather/64x64/day/'
 
 // constants
 export const LANGUAGES = { ru: 'ru', en: 'en' }
 export const THEMES = { light: 'light', dark: 'dark', default: 'light' }
+export const DAY_TIME = { day: 'day', night: 'night' }
 export const DEFAULT_SITY = 'Minsk'
 
 // get user location from browser
