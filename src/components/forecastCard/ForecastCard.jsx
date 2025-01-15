@@ -116,13 +116,6 @@ const ForecastCard = memo(({ forecast, day }) => {
 		day: 'numeric',
 	}).format(date)
 
-<<<<<<< HEAD
-	const year = date.getFullYear();
-    const month = new Intl.DateTimeFormat('ru-RU', { month: 'long' }).format(date);
-    const dayOfMonth = date.getDate();
-
-	console.log(forecast.day.condition.code)
-=======
 	const icon =
 		icons[theme.theme === 'light' ? 'day' : 'night'][
 			forecast.day.condition.code
@@ -133,7 +126,6 @@ const ForecastCard = memo(({ forecast, day }) => {
 			forecast.day.condition.code
 		],
 	)
->>>>>>> c2b65917afb8e4846e17c9c27860dcb8d5a29789
 	console.log('[ForecastCard]', forecast)
 	return (
 		<div className={styles.class}>
@@ -153,21 +145,13 @@ const ForecastCard = memo(({ forecast, day }) => {
 						{forecast.day.avgtemp_c + '°C'}
 					</div>
 				</div>
-<<<<<<< HEAD
-				<img
-					className={styles.wheaterIcon}
-					src={forecast.day.condition.icon}
-				/>
-				<div>
-=======
 				<img className={styles.wheaterIcon} src={icon} />
 
->>>>>>> c2b65917afb8e4846e17c9c27860dcb8d5a29789
 				<div>Влажность :{forecast.day.avghumidity}%</div>
 				<div>Осадки :{forecast.day.totalprecip_mm + ' '} мм рт.ст</div>
 				</div>
 			</div>
-		</div>
+		
 	)
 })
 
