@@ -1,0 +1,17 @@
+/* TODO:TEAM добавить стили */
+
+* {
+	color: white;
+}
+body {
+	background: url('src/public/фон.png') no-repeat;
+	background-size: cover;
+	min-height: 100vh;
+}
+.scrollHours{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-width: 60vw;
+	margin: 10%;
+}
