@@ -4,11 +4,11 @@
 	color: white;
 }
 body {
-	background: url('src/public/фон.png') no-repeat;
+	background: url('фон.png') no-repeat;
 	background-size: cover;
 	min-height: 100vh;
 }
-.scrollHours{
+.scrollHours {
 	display: flex;
 	flex-direction: column;
 	align-items: center;

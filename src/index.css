@@ -1,6 +1,8 @@
 /* TODO:TEAM сюда добавлять глобальные стили */
-@font-face{font-family:Bowler;
-	 src: url("src/public/ofont.ru_Bowler.ttf")}
+@font-face {
+	font-family: Bowler;
+	src: url('ofont.ru_Bowler.ttf');
+}
 * {
 	margin: 0;
 	padding: 0;
