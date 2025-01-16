@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom'
 import { API_FORECAST_TYPES, ROUTES } from '../../config'
 import Footer from '../components/footer/Footer'
 import Nav from '../components/nav/Nav'
+import styles from './SityForecast.module.css'
+
 import {
 	fetchForecast,
 	formatForecast,
@@ -40,29 +42,24 @@ const SityForecast = memo(() => {
 				}}
 			/>
 
-			<div>
+			<div className={styles.sityInfo}>
 				{forecast && (
 					<>
 						{/* TODO:TEAM стилизовать */}
 						{/* если надо, могу расширить компонент новыми полями */}
-						<div>
+						<div className={styles.region}>
 							{/* location */}
 							Город : {forecast.location.name}
 							<div>Область : {forecast.location.region}</div>
 							<div>Страна : {forecast.location.country}</div>
 						</div>
 
-						<div>
+						<div className={styles.lastUpdate}>
 							{/* last update */}
 							Последнее обновление : {forecast.lastUpdated}
 						</div>
 
-						<div>
-							{/* temp */}
-							{forecast.temp.temp_c}
-							{forecast.temp.feelslike_c}
-						</div>
-
+						<div className={styles.rowOfInfo}>
 						<div>
 							{/* humidity */}
 							Влажность : {forecast.humidity.current + '%'}
@@ -85,6 +82,7 @@ const SityForecast = memo(() => {
 						</div>
 						<div>
 						    Порыв : {forecast.wind.gust + ' км/с'}
+						</div>
 						</div>
 						<div>
 						    температура с учетом ветра : {forecast.wind.windchill + '°C'}

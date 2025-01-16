@@ -25,12 +25,15 @@ const InfoPanel = () => {
 			<ForecastCard
 				forecast={todayForecast[DEFAULT_DATE].forecast.forecastday[2]}
 				day={useDate(2, API_DEFAULT_FORECAST_TYPES.forecast)}
+				
 			/>
-
+            
+			<div>
+				<h1>Ещё интересненького на сегодня :</h1>
 			<div className={styles.infoPanel}>
 			<div>
 				{/* temperature */}
-				Температура : {current.temp.current + '°C'}
+				Темп. : {current.temp.current + '°C'}
 				<div>Ощущается как : {current.temp.feelslike + '°C'}</div>
 			</div>
 
@@ -43,15 +46,22 @@ const InfoPanel = () => {
 			<div>
 				{/* wind */}
 				Ветер : {current.wind.current + ' км/ч'}
-				<div>Температура с учетом ветра : {current.wind.windchill + '°C'}</div>
-				Направление : {current.wind.direction.degrees + '°'}
-				{current.wind.direction.direction}
+				<div>Темп. с учетом ветра : {current.wind.windchill + '°C'}
+					<div>
+					Направление : {current.wind.direction.degrees + '°'}
+					{current.wind.direction.direction}
+					</div>
+				</div>
 			</div>
 
 			<div>
 				{/* last update of forecast */}
-				Последнее обновление : {current.lastUpdated}
+				Последнее обновление : 
+				<div>
+				{current.lastUpdated}
+				</div>
 			</div>
+		</div>
 		</div>
 		</div>
 	)
