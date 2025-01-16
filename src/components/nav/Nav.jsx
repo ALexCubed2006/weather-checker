@@ -6,8 +6,9 @@ export default function Nav({ type }) {
 	return (
 		<div className={styles.nav}>
 			<div className={styles.logo}>
-				{/* TODO:TEAM добавить logo */}
-				LOGO
+				
+				{<img src="src\public\тимурикона.jpg" alt="" />
+				/* TODO:TEAM добавить logo */}
 			</div>
 			<div className={styles.links}>
 				{/* TODO:TEAM стилизовать и добавить иконки в теги */}
