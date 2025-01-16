@@ -14,5 +14,6 @@
 }
 
 .logo {
-	
+	height: 20px;
+	object-fit: cover;
 }
