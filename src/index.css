@@ -12,5 +12,6 @@
 }
 
 body {
-	
+	background: url('фон.png') no-repeat;
+	background-size: cover;
 }

@@ -1,0 +1,31 @@
+/* TODO:TEAM добавить стили */
+.sityInfo{
+    justify-self: center;
+    margin: 100px 0;
+    padding: 0 2%;
+    height: 50vh;
+    width: 70vw;
+    border-radius: 20px;
+    background-color: rgba(240, 248, 255, 0.412);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.lastUpdate{
+    margin: 3%;
+}
+.rowOfInfo{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.region{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    gap: 5%;
+    font-size: 27px;
+}

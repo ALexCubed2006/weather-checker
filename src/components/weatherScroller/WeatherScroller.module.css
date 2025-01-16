@@ -1,0 +1,26 @@
+/* TODO:TEAM добавить стили */
+
+/* TODO:TEAM тут базовые стили, можете их менять если надо */
+.scroll {
+	display: flex;
+	align-items: center;
+	width: 70vw;
+	margin: 3%;
+	justify-self: center;
+	height: 100px;
+	overflow-x: scroll;
+	scrollbar-width: thin;
+	scrollbar-color: rgba(0, 0, 0, 0.667) rgba(255, 255, 255, 0.338);
+}
+
+.hourContainer {
+	box-sizing: border-box;
+	width: 120px;
+	height: 70px;
+	padding: 7px;
+	margin: 5px;
+	border-radius: 5px;
+	background-color: rgba(255, 255, 255, 0.549);
+	text-align: center;
+	font-size: 17px;
+}
