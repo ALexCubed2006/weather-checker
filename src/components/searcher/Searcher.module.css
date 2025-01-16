@@ -1,1 +1,40 @@
 /* TODO:TEAM добавить стили */
+button:hover{
+    cursor: pointer;
+}
+.searcher{
+    display: inline;
+    float: right;
+
+}
+.input::placeholder{
+    color: rgba(0, 0, 0, 0.496);
+}
+.searchline{
+    padding: 0 40px 40px 40px;
+    border-radius: 10px;  
+}
+img{
+    object-fit: cover;
+    width: 350px;
+    height: 157px;
+    display: inline;
+    float: inline-end;
+    margin: 0 100px;
+    bottom: 0;
+    top: 0;
+    
+}
+.input{
+    width: 30vw;
+    height: 20px;
+    border-radius: 7px;
+    border: white solid 2px;
+    background: rgba(255, 255, 255, 0.248);
+    padding: 0 5px;
+}
+.find{
+    padding: 0 8px;
+    text-align: center;
+    font-size: 15px;
+}

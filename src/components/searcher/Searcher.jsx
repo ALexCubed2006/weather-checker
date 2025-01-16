@@ -1,15 +1,24 @@
 import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Locations } from '../../../config'
-
+import styles from './Searcher.module.css'
+import weather_icon from '../../public/Облычно с прояснениями.png'
 export default function Searcher() {
+	console.log('[Searcher]')
 	const navigate = useNavigate()
 	const [search, setSearch] = useState('')
+	const [isCheckPassed, setIsCheckPassed] = useState(false)
 	const buttonRef = useRef(null)
 	const inputRef = useRef(null)
 
+	// TODO:TEAM добавить стили для кнопки
+	const buttonStyles = {
+		// если isCheckPassed === true применяются первые стили, иначе вторые
+		backgroundColor: isCheckPassed ? 'gray' : 'black',
+	}
+
 	function handleSearch() {
-		if (!checkInput(search)) {
+		if (!isCheckPassed) {
 			console.log('not found')
 			return
 		}
@@ -17,29 +26,36 @@ export default function Searcher() {
 		navigate('/sity/' + search)
 	}
 
-	// TODO: добавить визуальное оповещение об ошибке
 	function checkInput(query) {
+		console.log('[checkInput]', query)
 		if (query === '') {
-			return false
+			setIsCheckPassed(() => false)
 		}
 
-		if (Locations.includes(query)) {
-			return true
+		if (Locations.includes(query.toLowerCase())) {
+			console.log('found')
+			setIsCheckPassed(() => true)
 		}
 
-		return false
+		if (!Locations.includes(query.toLowerCase())) {
+			setIsCheckPassed(() => false)
+		}
 	}
 
-	// TODO: добавить подсказки к input
-	// TODO: добавить debounce поиска
 	return (
-		<div>
-			<input
+		<div className={styles.searcher}>
+			<div><img src={weather_icon} alt=""/></div>
+			<div className={styles.searchline}><input
+				// TODO:TEAM добавить стили
 				style={{ color: 'black' }}
+				className={styles.input}
 				ref={inputRef}
 				type='text'
 				value={search}
-				onChange={(e) => setSearch(e.target.value)}
+				onChange={(e) => {
+					setSearch(e.target.value)
+					checkInput(e.target.value)
+				}}
 				onKeyDown={(e) => {
 					if (e.key === 'Enter') {
 						buttonRef.current.click()
@@ -51,10 +67,17 @@ export default function Searcher() {
 						inputRef.current.blur()
 					}
 				}}
+				placeholder='введите город'
 			/>
-			<button onClick={handleSearch} ref={buttonRef}>
-				Search
-			</button>
+			<button
+				onClick={handleSearch}
+				ref={buttonRef}
+				style={buttonStyles}
+				disabled={!isCheckPassed}
+				className={styles.find}
+			>
+				Поиск
+			</button></div>
 		</div>
 	)
 }

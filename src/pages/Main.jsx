@@ -1,6 +1,8 @@
 import { memo } from 'react'
 import { useSelector } from 'react-redux'
-import { INDICATOR_TYPES, ROUTES } from '../../config'
+import { DEFAULT_DATE, INDICATOR_TYPES, ROUTES } from '../../config'
+import Footer from '../components/footer/Footer'
+import InfoPanel from '../components/infoPanel/InfoPanel'
 import Nav from '../components/nav/Nav'
 import Searcher from '../components/searcher/Searcher'
 import WeatherScroller from '../components/weatherScroller/WeatherScroller'
@@ -9,11 +11,11 @@ import styles from './Main.module.css'
 const Main = memo(() => {
 	console.log('[Main]')
 	const location = useSelector((state) => state.weather.sity)
-	const current = useSelector((state) => state.weather.current)
-	const todayForecast = useSelector((state) => state.weather.forecast)
 
+	console.log(new Date().getHours())
+	console.log(DEFAULT_DATE)
 	return (
-		<div className={styles.nav}>
+		<div>
 			<Nav
 				type={{
 					name: 'Main',
@@ -27,32 +29,42 @@ const Main = memo(() => {
 
 			{/* TODO:TEAM решите какие оставить а какие убрать */}
 			{/* temperature */}
-			<p>Temperature</p>
+			<div className={styles.scrollHours}>
+			
+			<div>
+			<h1>Почасовой прогноз</h1>
+			<p>Температура</p>
 			<WeatherScroller type={INDICATOR_TYPES.temperature} />
+			</div>
 
 			{/* wind */}
-			<p>Wind</p>
+			<div>
+			<p>Ветер</p>
 			<WeatherScroller type={INDICATOR_TYPES.wind} />
+			</div>
 
 			{/* humidity */}
-			<p>Humidity</p>
+			<div>
+			<p>Влажность</p>
 			<WeatherScroller type={INDICATOR_TYPES.humidity} />
+			</div>
 
 			{/* pressure */}
-			<p>Pressure</p>
+			<div>
+			<p>Давление</p>
 			<WeatherScroller type={INDICATOR_TYPES.pressure} />
+			</div>
 
 			{/* clouds */}
-			<p>Clouds</p>
+			<div>
+			<p>Облачность</p>
 			<WeatherScroller type={INDICATOR_TYPES.clouds} />
-			<div>
-				{/* погода сейчас */}
-				{/* {JSON.stringify(current)} */}
 			</div>
-			<div>
-				{/* прогноз на день */}
-				{/* {JSON.stringify(todayForecast)} */}
-			</div>
+
+			<InfoPanel />
+
+			<Footer />
+		</div>
 		</div>
 	)
 })

@@ -1,6 +1,7 @@
 import { THEMES } from '../../../config'
 
 export default function useDayTheme(forecast) {
+	console.log('useDayTheme', forecast)
 	if (!forecast.astro) {
 		return {
 			theme: THEMES.default,
