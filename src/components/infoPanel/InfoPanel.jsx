@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux'
 import { API_DEFAULT_FORECAST_TYPES, DEFAULT_DATE } from '../../../config'
 import useDate from '../../hooks/weather/useDate'
 import ForecastCard from '../forecastCard/ForecastCard'
+import styles from './InfoPanel.module.css'
 
 const InfoPanel = () => {
 	const current = useSelector((state) => state.weather.current)
@@ -26,6 +27,7 @@ const InfoPanel = () => {
 				day={useDate(2, API_DEFAULT_FORECAST_TYPES.forecast)}
 			/>
 
+			<div className={styles.infoPanel}>
 			<div>
 				{/* temperature */}
 				Температура : {current.temp.current + '°C'}
@@ -50,6 +52,7 @@ const InfoPanel = () => {
 				{/* last update of forecast */}
 				Последнее обновление : {current.lastUpdated}
 			</div>
+		</div>
 		</div>
 	)
 }

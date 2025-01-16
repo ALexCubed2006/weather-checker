@@ -1,1 +1,12 @@
 /* TODO:TEAM добавить стили */
+.infoPanel{
+    justify-content: center;
+    margin: 5%;
+    padding: 0 2%;
+    border-radius: 20px;
+    background-color: rgba(240, 248, 255, 0.412);
+    display: block;
+    width: 50vh;
+    position: relative;
+    
+}
