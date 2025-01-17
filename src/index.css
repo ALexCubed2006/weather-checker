@@ -10,3 +10,8 @@
 	position: relative;
 	font-family: Bowler;
 }
+
+body {
+	background: url('фон.png') no-repeat;
+	background-size: cover;
+}
