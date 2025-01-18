@@ -65,6 +65,7 @@ export default function App() {
 	if (!theme) return null
 
 	console.log(theme)
+	console.log(DEFAULT_LOCATION)
 
 	return (
 		<ThemeContext.Provider value={theme}>
