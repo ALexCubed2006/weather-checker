@@ -44,7 +44,7 @@ export default function Searcher() {
 	return (
 		<div className={styles.searcher}>
 			<div>
-				<img src='ОблычноCпрояснениями.png' alt='' />
+				<img src='ОблычноCпрояснениями.png' className={styles.embleme} />
 			</div>
 			<div className={styles.searchline}>
 				<input
