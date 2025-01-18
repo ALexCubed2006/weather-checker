@@ -12,8 +12,16 @@ const Footer = memo(() => {
 				<AppLink path={ROUTES.main}>Домой</AppLink>
 				<AppLink path={ROUTES.story}>Архив</AppLink>
 				<AppLink path={ROUTES.sity}>Город</AppLink>
+				
 			</div>
-			
+			<div className={styles.names}>
+				Проект подготовлен при поддержке 
+				<div>начинающих звездочек 1ФИТ2:</div>
+				<div>Якубицкий Алексей</div>
+				<div>Казак Анна</div>
+				<div>Костюченко Анна</div>
+				<div>Стельмах Карина</div>
+				</div>
 		</div>
 	)
 })

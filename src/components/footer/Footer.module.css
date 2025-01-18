@@ -1,3 +1,11 @@
 .footer{
+    position: relative;
     padding: 2% 0;
+}
+.names{
+    margin: 30px 0 0 0;
+    font-size: 9px;
+    position: absolute;
+    align-self: flex-start;
+    text-align: left;
 }
