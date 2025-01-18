@@ -84,6 +84,7 @@ export const INDICATOR_TYPES = {
 }
 
 export const Locations = [
+	'novoye medvezhino',
 	'st. petersburg',
 	'london',
 	'berlin',

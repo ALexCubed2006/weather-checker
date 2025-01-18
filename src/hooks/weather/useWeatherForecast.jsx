@@ -9,6 +9,7 @@ import {
 	DEFAULT_LOCATION,
 	FORECAST_API_URL,
 	HISTORY_API_URL,
+	Locations,
 	WEATHER_API_KEY,
 } from '../../../config'
 import useRandomParams from './useRandomParams'
@@ -108,8 +109,30 @@ export const fetchForecast = async (
 	signal = null,
 ) => {
 	console.log('[fetchForecast]')
+
+	const regex = /^(-?\d+(\.\d+)?),\s*(-?\d+(\.\d+)?)$/
+	const match = location.match(regex)
+	if (!match?.length) {
+		console.log(
+			location.substring(6).replaceAll('%20', ' ').toLocaleLowerCase(),
+		)
+		if (
+			!Locations.includes(
+				location
+					.substring(6)
+					.replaceAll('%20', ' ')
+					.toLocaleLowerCase(),
+			)
+		) {
+			location = DEFAULT_LOCATION
+		} else {
+			location = location.substring(6).replaceAll('%20', ' ')
+		}
+	}
+
 	switch (type) {
 		case API_FORECAST_TYPES.current:
+			console.log(location, day)
 			return await axios.get(CURRENT_API_URL, {
 				headers: {
 					key: WEATHER_API_KEY,
