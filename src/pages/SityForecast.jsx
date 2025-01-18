@@ -49,8 +49,8 @@ const SityForecast = memo(() => {
 						{/* если надо, могу расширить компонент новыми полями */}
 						<div className={styles.region}>
 							{/* location */}
-							Город : {forecast.location.name}
-							<div>Область : {forecast.location.region}</div>
+							Область : {forecast.location.name}
+							<div>Город : {forecast.location.region}</div>
 							<div>Страна : {forecast.location.country}</div>
 						</div>
 
@@ -85,7 +85,7 @@ const SityForecast = memo(() => {
 						</div>
 						</div>
 						<div>
-						    температура с учетом ветра : {forecast.wind.windchill + '°C'}
+						    Температура с учетом ветра : {forecast.wind.windchill + '°C'}
 						</div>
 						</div>
 					</>

@@ -13,7 +13,8 @@
 	
 }
 
-.logo {
-	height: 20px;
+.logo img{
 	object-fit: cover;
+	height: 80px;
+	width: 150px;
 }
