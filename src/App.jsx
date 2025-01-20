@@ -25,7 +25,6 @@ import {
 } from './redux/weather.slice'
 
 export default function App() {
-	console.log('[App]')
 	const dispatch = useDispatch()
 
 	useEffect(() => {
@@ -63,9 +62,6 @@ export default function App() {
 
 	const theme = useSelector((state) => state.weather.theme)
 	if (!theme) return null
-
-	console.log(theme)
-	console.log(DEFAULT_LOCATION)
 
 	return (
 		<ThemeContext.Provider value={theme}>

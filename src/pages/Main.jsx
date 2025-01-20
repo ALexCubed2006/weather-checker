@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { useSelector } from 'react-redux'
-import { DEFAULT_DATE, INDICATOR_TYPES, ROUTES } from '../../config'
+import { INDICATOR_TYPES, ROUTES } from '../../config'
 import Footer from '../components/footer/Footer'
 import InfoPanel from '../components/infoPanel/InfoPanel'
 import Nav from '../components/nav/Nav'
@@ -9,11 +9,8 @@ import WeatherScroller from '../components/weatherScroller/WeatherScroller'
 import styles from './Main.module.css'
 
 const Main = memo(() => {
-	console.log('[Main]')
 	const location = useSelector((state) => state.weather.sity)
 
-	console.log(new Date().getHours())
-	console.log(DEFAULT_DATE)
 	return (
 		<div>
 			<Nav
@@ -27,7 +24,6 @@ const Main = memo(() => {
 			/>
 			<Searcher />
 
-			{/* TODO:TEAM решите какие оставить а какие убрать */}
 			{/* temperature */}
 			<div className={styles.scrollHours}>
 				<div>

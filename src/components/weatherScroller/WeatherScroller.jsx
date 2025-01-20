@@ -22,14 +22,11 @@ const WeatherScroller = ({ type = INDICATOR_TYPES.temperature }) => {
 
 
 	return (
-		// TODO:TEAM стилизовать
 		<div className={styles.scroll}>
 			{filterHours.map((hour) => (
-				// TODO:TEAM можешь добавить стили на теги p
 				<span className={styles.hourContainer} key={hour.time}>
 					<p>{hour.time.split(' ')[1]}</p>
 					<p>
-						{/* TODO:TEAM: сюда можно не смотреть, там происходит магия */}
 						{type === INDICATOR_TYPES.temperature
 							? hour.temp_c + '°C'
 							: type === INDICATOR_TYPES.wind

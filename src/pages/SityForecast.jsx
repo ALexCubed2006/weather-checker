@@ -45,12 +45,10 @@ const SityForecast = memo(() => {
 			<div className={styles.sityInfo}>
 				{forecast && (
 					<>
-						{/* TODO:TEAM стилизовать */}
-						{/* если надо, могу расширить компонент новыми полями */}
 						<div className={styles.region}>
 							{/* location */}
-							Область : {forecast.location.name}
-							<div>Город : {forecast.location.region}</div>
+							Город: {forecast.location.name}
+							<div> Область: {forecast.location.region}</div>
 							<div>Страна : {forecast.location.country}</div>
 						</div>
 
@@ -60,33 +58,36 @@ const SityForecast = memo(() => {
 						</div>
 
 						<div className={styles.rowOfInfo}>
-						<div>
-							{/* humidity */}
-							Влажность : {forecast.humidity.current + '%'}
 							<div>
-								Точка росы : {forecast.humidity.dewpoint + '°C'}
+								{/* humidity */}
+								Влажность : {forecast.humidity.current + '%'}
+								<div>
+									Точка росы :{' '}
+									{forecast.humidity.dewpoint + '°C'}
+								</div>
 							</div>
-						</div>
 
-						<div>
-							{/* condition */}
-							Погодные условия : {forecast.condition}
-						</div>
-
-						<div>
-							{/* wind */}
-							Ветер : {forecast.wind.current + ' км/ч'}
 							<div>
-						    Направление: {forecast.wind.direction.degrees}
-							{forecast.wind.direction.direction}
-						</div>
-						<div>
-						    Порыв : {forecast.wind.gust + ' км/с'}
-						</div>
-						</div>
-						<div>
-						    Температура с учетом ветра : {forecast.wind.windchill + '°C'}
-						</div>
+								{/* condition */}
+								Погодные условия : {forecast.condition}
+							</div>
+
+							<div>
+								{/* wind */}
+								Ветер : {forecast.wind.current + ' км/ч'}
+								<div>
+									Направление:{' '}
+									{forecast.wind.direction.degrees}
+									{forecast.wind.direction.direction}
+								</div>
+								<div>
+									Порыв : {forecast.wind.gust + ' км/с'}
+								</div>
+							</div>
+							<div>
+								Температура с учетом ветра :{' '}
+								{forecast.wind.windchill + '°C'}
+							</div>
 						</div>
 					</>
 				)}
