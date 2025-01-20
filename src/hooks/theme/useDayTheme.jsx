@@ -1,13 +1,11 @@
 import { THEMES } from '../../../config'
 
 export default function useDayTheme(forecast) {
-	console.log('useDayTheme', forecast)
 	if (!forecast.astro) {
 		return {
 			theme: THEMES.default,
 		}
 	}
-	console.log('useDayTheme')
 	const localTime = new Date().getHours()
 
 	let sunRiseHour = +forecast.astro.sunrise.split(':')[0]
@@ -31,8 +29,6 @@ export default function useDayTheme(forecast) {
 	}
 
 	const isDay = localTime > sunRiseHour && localTime < sunSetHour
-
-	console.log(isDay, sunRiseHour, sunSetHour, moonRiseHour, moonSetHour)
 
 	return {
 		theme: isDay ? THEMES.light : THEMES.dark,

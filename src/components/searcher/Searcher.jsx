@@ -3,16 +3,13 @@ import { useNavigate } from 'react-router-dom'
 import { Locations } from '../../../config'
 import styles from './Searcher.module.css'
 export default function Searcher() {
-	console.log('[Searcher]')
 	const navigate = useNavigate()
 	const [search, setSearch] = useState('')
 	const [isCheckPassed, setIsCheckPassed] = useState(false)
 	const buttonRef = useRef(null)
 	const inputRef = useRef(null)
 
-	// TODO:TEAM добавить стили для кнопки
 	const buttonStyles = {
-		// если isCheckPassed === true применяются первые стили, иначе вторые
 		backgroundColor: isCheckPassed ? 'gray' : 'black',
 	}
 
@@ -44,11 +41,13 @@ export default function Searcher() {
 	return (
 		<div className={styles.searcher}>
 			<div>
-				<img src='ОблычноCпрояснениями.png' className={styles.embleme} />
+				<img
+					src='ОблычноCпрояснениями.png'
+					className={styles.embleme}
+				/>
 			</div>
 			<div className={styles.searchline}>
 				<input
-					// TODO:TEAM добавить стили
 					style={{ color: 'black' }}
 					className={styles.input}
 					ref={inputRef}

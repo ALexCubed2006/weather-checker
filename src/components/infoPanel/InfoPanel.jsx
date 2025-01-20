@@ -10,8 +10,6 @@ const InfoPanel = () => {
 
 	if (!todayForecast[DEFAULT_DATE]) return <div>Loading...</div>
 	return (
-    // TODO:TEAM стилизовать и можете разбить по контейнерам
-    // если надо, могу разнести на разные компоненты
 		<div>
 			{/* forecast for 3 days */}
 			<ForecastCard

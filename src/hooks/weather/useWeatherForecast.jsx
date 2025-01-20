@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
 import {
 	API_FORECAST_TYPES,
 	ASTRO_API_URL,
@@ -14,32 +13,7 @@ import {
 } from '../../../config'
 import useRandomParams from './useRandomParams'
 
-export default function useWeatherForecast(
-	type = API_FORECAST_TYPES.current,
-	location = DEFAULT_LOCATION,
-	lang = DEFAULT_LANG,
-	day = DEFAULT_DATE,
-) {
-	console.log('[useWeatherForecast]')
-	const [forecast, setForecast] = useState(null)
-
-	useEffect(() => {
-		const ff = async () => {
-			const forecast = await fetchForecast(type, day, location, lang)
-			setForecast(forecast)
-		}
-		ff()
-	}, [])
-
-	console.log(forecast)
-	if (forecast) {
-		return formatForecast(forecast, type)
-	}
-}
-
 // helper functions
-
-// formats forecast data
 export const formatForecast = (weather, type = API_FORECAST_TYPES.current) => {
 	if (type === API_FORECAST_TYPES.current) {
 		return {
@@ -93,14 +67,12 @@ export const formatForecast = (weather, type = API_FORECAST_TYPES.current) => {
 		}
 	}
 
-	// TODO: create selecting random params
 	if (type === API_FORECAST_TYPES.random) {
 		return weather.data
 	}
 	return weather.data
 }
 
-// fetches forecast
 export const fetchForecast = async (
 	type = API_FORECAST_TYPES.current,
 	day = DEFAULT_DATE,
@@ -108,14 +80,9 @@ export const fetchForecast = async (
 	lang = DEFAULT_LANG,
 	signal = null,
 ) => {
-	console.log('[fetchForecast]')
-
 	const regex = /^(-?\d+(\.\d+)?),\s*(-?\d+(\.\d+)?)$/
 	const match = location.match(regex)
 	if (!match?.length) {
-		console.log(
-			location.substring(6).replaceAll('%20', ' ').toLocaleLowerCase(),
-		)
 		if (
 			!Locations.includes(
 				location
@@ -132,7 +99,6 @@ export const fetchForecast = async (
 
 	switch (type) {
 		case API_FORECAST_TYPES.current:
-			console.log(location, day)
 			return await axios.get(CURRENT_API_URL, {
 				headers: {
 					key: WEATHER_API_KEY,
